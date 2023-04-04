@@ -38,6 +38,6 @@ public class CitiesRepository
     public string SearchByName()
     {
         var result = Values.Where(x => x.Contains(Field)).ToList();
-        return result.Count > 0 ? string.Join(",",result) : string.Empty;
+        return result.Count > 0 ? string.Join(",",result) : "No results.";
     }
 }

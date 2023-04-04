@@ -51,5 +51,16 @@ namespace SearchCity.Test
 
             expectedResult.Should().Be(_isearchCity.Get(input));
         }
+
+
+        [TestCase("va")]
+        [TestCase("oN")]
+        [TestCase("AM")]
+        public void return_no_results_when_not_match_field_by_case_sensitive(string input)
+        {
+            var result = _searchCity.Get(input);
+
+            result.Should().Be("No results.");
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace SearchCity.Test
         public void return_Valencia_Vancouver_when_input_value_is_Va(string input, string expectedResult)
         {
             var citiesRepository = CitiesRepository.Create(input);
+
             _isearchCity.Get(citiesRepository).Returns(expectedResult);
 
             expectedResult.Should().Be(_isearchCity.Get(citiesRepository));
@@ -60,6 +61,7 @@ namespace SearchCity.Test
         {
             var expectedResult = "No results.";
             var citiesRepository = CitiesRepository.Create(input);
+
             _isearchCity.Get(citiesRepository).Returns("No results.");
 
             expectedResult.Should().Be(_isearchCity.Get(citiesRepository));
@@ -70,7 +72,9 @@ namespace SearchCity.Test
         {
             CitiesRepository citiesRepository = CitiesRepository.Create("*");
             var result = _searchCity.Get(CitiesRepository.Create("*"));
+
             var expectedResult = string.Join(",", citiesRepository.Values);
+
             result.Should().Be(expectedResult);
         }
     }

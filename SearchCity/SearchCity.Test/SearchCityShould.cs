@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace SearchCity.Test
 {
     public class SearchCityShould
@@ -8,9 +10,19 @@ namespace SearchCity.Test
         }
 
         [Test]
-        public void Test1()
+        public void return_no_result_when_input_search_is_empty()
         {
-            Assert.Pass();
+            var result = SearchCity.Get("");
+
+            result.Should().Be("No results.");
+        }
+    }
+
+    public class SearchCity
+    {
+        public static object Get(string empty)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,15 +1,10 @@
 namespace SearchCity.Console;
 
-public class SearchCity
+public class SearchCity : ISearchCity
 {
     public string Get(string field)
     {
-        if (!IsValidField(field))
-        {
-            return "No results.";
-        }
-
-        return SearchByName(Cities.Create(field));
+        return !IsValidField(Cities.Create(field)) ? "No results." : SearchByName(Cities.Create(field));
     }
 
     private string SearchByName(Cities cities)
@@ -18,8 +13,8 @@ public class SearchCity
         return result.Count > 0 ? string.Join(",",result) : string.Empty;
     }
 
-    private bool IsValidField(string field)
+    private bool IsValidField(Cities cities)
     {
-        return !string.IsNullOrEmpty(field) && field.Length >= 2;
+        return !string.IsNullOrEmpty(cities.Field) && cities.Field.Length >= 2;
     }
 }

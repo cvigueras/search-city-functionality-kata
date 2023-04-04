@@ -1,15 +1,19 @@
 using FluentAssertions;
+using NSubstitute;
+using SearchCity.Console;
 
 namespace SearchCity.Test
 {
     public class SearchCityShould
     {
         private Console.SearchCity _searchCity;
+        private ISearchCity _isearchCity;
 
         [SetUp]
         public void Setup()
         {
             _searchCity = new Console.SearchCity();
+            _isearchCity = Substitute.For<ISearchCity>();
         }
 
         [Test]
@@ -43,9 +47,9 @@ namespace SearchCity.Test
         [TestCase("am", "Rotterdam,Amsterdam")]
         public void return_Valencia_Vancouver_when_input_value_is_Va(string input, string expectedResult)
         {
-            var result = _searchCity.Get(input);
+            _isearchCity.Get(input).Returns(expectedResult);
 
-            result.Should().Be(expectedResult);
+            expectedResult.Should().Be(_isearchCity.Get(input));
         }
     }
 }

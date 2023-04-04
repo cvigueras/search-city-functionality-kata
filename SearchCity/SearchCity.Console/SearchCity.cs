@@ -4,27 +4,16 @@ public class SearchCity
 {
     public string Get(string field)
     {
-        if (field == "")
+        if (!IsValidField(field))
         {
             return "No results.";
         }
-        if (field == null)
-        {
-            return "No results.";
-        }
-        if (field == "a")
-        {
-            return "No results.";
-        }
-        if (field == "b")
-        {
-            return "No results.";
-        }
-        if (field == "c")
-        {
-            return "No results.";
-        }
-
+        
         return string.Empty;
+    }
+
+    private bool IsValidField(string field)
+    {
+        return !string.IsNullOrEmpty(field) && field.Length >= 2;
     }
 }

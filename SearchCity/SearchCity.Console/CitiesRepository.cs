@@ -2,13 +2,20 @@ namespace SearchCity.Console;
 
 public class CitiesRepository
 {
-    public string Field { get; private set; }
+    private static string _noResults;
+    public string Field { get; }
+
+    public static string GetNoResults() => _noResults;
+
+    private void SetNoResults(string value) => _noResults = value;
+
     public List<string> Values { get; set; }
 
     private CitiesRepository(List<string> values, string field)
     {
         Values = values;
         Field = field;
+        SetNoResults("No results.");
     }
 
     public static CitiesRepository Create(string field)

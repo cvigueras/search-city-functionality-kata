@@ -20,6 +20,10 @@ public class SearchCity
         {
             return "No results.";
         }
+        if (field == "c")
+        {
+            return "No results.";
+        }
 
         return string.Empty;
     }

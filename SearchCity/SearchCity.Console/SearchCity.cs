@@ -19,6 +19,11 @@ public class SearchCity
             return "London,HongKong";
         }
 
+        if (field == "am")
+        {
+            return "Rotterdam,Amsterdam";
+        }
+
         return string.Empty;
     }
 

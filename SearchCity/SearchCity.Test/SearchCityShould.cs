@@ -48,5 +48,15 @@ namespace SearchCity.Test
 
             result.Should().Be("No results.");
         }
+
+        [Test]
+        public void return_no_result_when_input_search_is_less_than_two_character_with_other_more_string()
+        {
+            var searchCity = new Console.SearchCity();
+
+            var result = searchCity.Get("c");
+
+            result.Should().Be("No results.");
+        }
     }
 }

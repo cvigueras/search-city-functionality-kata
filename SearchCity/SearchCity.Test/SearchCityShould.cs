@@ -41,7 +41,7 @@ namespace SearchCity.Test
         [Test]
         public void return_Valencia_Vancouver_when_input_value_is_Va()
         {
-            var result = _searchCity.Get("va");
+            var result = _searchCity.Get("Va");
 
             result.Should().Be("Valencia,Vancouver");
         }

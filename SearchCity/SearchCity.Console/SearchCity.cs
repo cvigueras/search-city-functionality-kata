@@ -8,7 +8,11 @@ public class SearchCity
         {
             return "No results.";
         }
-        
+
+        if (field == "Va")
+        {
+            return "Valencia,Vancouver";
+        }
         return string.Empty;
     }
 

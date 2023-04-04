@@ -67,24 +67,10 @@ namespace SearchCity.Test
         [Test]
         public void return_all_city_names_when_input_value_is_asterisk()
         {
+            CitiesRepository citiesRepository = CitiesRepository.Create("*");
             var result = _searchCity.Get("*");
-
-            result.Should().Be(@"Paris",
-                                "Budapest",
-                                "Skopje",
-                                "Rotterdam",
-                                "Valencia",
-                                "Vancouver",
-                                "Amsterdam",
-                                "Vienna",
-                                "Sydney",
-                                "New York City",
-                                "London",
-                                "Bangkok",
-                                "Hong Kong",
-                                "Dubai",
-                                "Rome",
-                                "Istanbul");
+            var expectedResult = string.Join(",", citiesRepository.Values);
+            result.Should().Be(expectedResult);
         }
     }
 }

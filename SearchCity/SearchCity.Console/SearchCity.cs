@@ -2,17 +2,17 @@ namespace SearchCity.Console;
 
 public class SearchCity
 {
-    public string Get(string empty)
+    public string Get(string field)
     {
-        if (empty == "")
+        if (field == "")
         {
             return "No results.";
         }
-        if (empty == null)
+        if (field == null)
         {
             return "No results.";
         }
-        if (empty == "a")
+        if (field == "a")
         {
             return "No results.";
         }

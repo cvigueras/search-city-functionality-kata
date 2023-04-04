@@ -13,6 +13,11 @@ public class SearchCity
         {
             return "Valencia,Vancouver";
         }
+
+        if (field == "on")
+        {
+            return "London,HongKong";
+        }
         return string.Empty;
     }
 

@@ -53,5 +53,13 @@ namespace SearchCity.Test
 
             result.Should().Be("London,HongKong");
         }
+
+        [Test]
+        public void return_Rotterdam_Amsterdam_when_input_value_is_am()
+        {
+            var result = _searchCity.Get("am");
+
+            result.Should().Be("Rotterdam,Amsterdam");
+        }
     }
 }

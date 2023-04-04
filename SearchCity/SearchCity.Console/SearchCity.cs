@@ -18,6 +18,7 @@ public class SearchCity
         {
             return "London,HongKong";
         }
+
         return string.Empty;
     }
 

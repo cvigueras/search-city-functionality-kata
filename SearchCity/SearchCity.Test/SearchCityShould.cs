@@ -37,5 +37,13 @@ namespace SearchCity.Test
 
             result.Should().Be("No results.");
         }
+
+        [Test]
+        public void return_Valencia_Vancouver_when_input_value_is_Va()
+        {
+            var result = _searchCity.Get("va");
+
+            result.Should().Be("Valencia,Vancouver");
+        }
     }
 }

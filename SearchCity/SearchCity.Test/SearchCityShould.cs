@@ -71,7 +71,7 @@ namespace SearchCity.Test
         public void return_all_city_names_when_input_value_is_asterisk()
         {
             CitiesRepository citiesRepository = CitiesRepository.Create("*");
-            var result = _searchCity.Get(CitiesRepository.Create("*"));
+            var result = _searchCity.Get(citiesRepository);
 
             var expectedResult = string.Join(",", citiesRepository.Values);
 

@@ -9,7 +9,7 @@ public class CitiesRepository
 
     private void SetNoResults(string value) => _noResults = value;
 
-    public List<string> Values { get; set; }
+    public List<string> Values { get; }
 
     private CitiesRepository(List<string> values, string field)
     {

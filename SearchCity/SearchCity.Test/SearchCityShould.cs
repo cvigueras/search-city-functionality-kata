@@ -45,5 +45,13 @@ namespace SearchCity.Test
 
             result.Should().Be("Valencia,Vancouver");
         }
+
+        [Test]
+        public void return_London_HongKong_when_input_value_is_on()
+        {
+            var result = _searchCity.Get("on");
+
+            result.Should().Be("London,HongKong");
+        }
     }
 }

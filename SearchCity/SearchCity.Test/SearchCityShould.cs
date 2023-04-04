@@ -63,5 +63,28 @@ namespace SearchCity.Test
 
             expectedResult.Should().Be(_isearchCity.Get(input));
         }
+
+        [Test]
+        public void return_all_city_names_when_input_value_is_asterisk()
+        {
+            var result = _searchCity.Get("*");
+
+            result.Should().Be(@"Paris",
+                                "Budapest",
+                                "Skopje",
+                                "Rotterdam",
+                                "Valencia",
+                                "Vancouver",
+                                "Amsterdam",
+                                "Vienna",
+                                "Sydney",
+                                "New York City",
+                                "London",
+                                "Bangkok",
+                                "Hong Kong",
+                                "Dubai",
+                                "Rome",
+                                "Istanbul");
+        }
     }
 }

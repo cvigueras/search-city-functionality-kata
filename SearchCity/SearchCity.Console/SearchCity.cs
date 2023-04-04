@@ -2,11 +2,11 @@ namespace SearchCity.Console;
 
 public class SearchCity : ISearchCity
 {
-    public string Get(string field)
+    public string Get(CitiesRepository citiesRepository)
     {
-        return field == "*" ? CitiesRepository.Create(field).GetAllValues() :
-            !Validate(CitiesRepository.Create(field)) ? CitiesRepository.GetNoResults() :
-            CitiesRepository.Create(field).SearchByName();
+        return citiesRepository.Field == "*" ? CitiesRepository.Create(citiesRepository.Field).GetAllValues() :
+            !Validate(CitiesRepository.Create(citiesRepository.Field)) ? CitiesRepository.GetNoResults() :
+            CitiesRepository.Create(citiesRepository.Field).SearchByName();
     }
 
     private bool Validate(CitiesRepository citiesRepository)

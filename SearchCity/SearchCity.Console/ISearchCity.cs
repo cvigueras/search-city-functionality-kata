@@ -2,5 +2,5 @@ namespace SearchCity.Console;
 
 public interface ISearchCity
 {
-    string Get(string field);
+    string Get(CitiesRepository citiesRepository);
 }

@@ -45,11 +45,11 @@ public class CitiesRepository
     public string SearchByName()
     {
         var result = Values.Where(x => x.Contains(Field,StringComparison.Ordinal)).ToList();
-        return result.Count > 0 ? string.Join(",",result) : "No results.";
+        return result.Count > 0 ? string.Join(",", result) : _noResults;
     }
 
     public string GetAllValues()
     {
-        return string.Join(",", CitiesRepository.Create(Field).Values);
+        return string.Join(",", Create(Field).Values);
     }
 }

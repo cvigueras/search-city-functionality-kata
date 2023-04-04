@@ -4,17 +4,18 @@ namespace SearchCity.Test
 {
     public class SearchCityShould
     {
+        private Console.SearchCity _searchCity;
+
         [SetUp]
         public void Setup()
         {
+            _searchCity = new Console.SearchCity();
         }
 
         [Test]
         public void return_no_result_when_input_search_is_empty()
         {
-            var searchCity = new Console.SearchCity();
-
-            var result = searchCity.Get("");
+            var result = _searchCity.Get("");
 
             result.Should().Be("No results.");
         }
@@ -22,39 +23,17 @@ namespace SearchCity.Test
         [Test]
         public void return_no_result_when_input_search_is_null()
         {
-            var searchCity = new Console.SearchCity();
-
-            var result = searchCity.Get(null);
+            var result = _searchCity.Get(null);
 
             result.Should().Be("No results.");
         }
 
-        [Test]
-        public void return_no_result_when_input_search_is_less_than_two_character()
+        [TestCase("a")]
+        [TestCase("b")]
+        [TestCase("c")]
+        public void return_no_result_when_input_search_is_less_than_two_character(string input)
         {
-            var searchCity = new Console.SearchCity();
-
-            var result = searchCity.Get("a");
-
-            result.Should().Be("No results.");
-        }
-
-        [Test]
-        public void return_no_result_when_input_search_is_less_than_two_character_with_other_string()
-        {
-            var searchCity = new Console.SearchCity();
-
-            var result = searchCity.Get("b");
-
-            result.Should().Be("No results.");
-        }
-
-        [Test]
-        public void return_no_result_when_input_search_is_less_than_two_character_with_other_more_string()
-        {
-            var searchCity = new Console.SearchCity();
-
-            var result = searchCity.Get("c");
+            var result = _searchCity.Get(input);
 
             result.Should().Be("No results.");
         }

@@ -51,7 +51,7 @@ namespace SearchCity.Test
         {
             var result = _searchCity.Get("on");
 
-            result.Should().Be("London,HongKong");
+            result.Should().Be("London,Hong Kong");
         }
 
         [Test]

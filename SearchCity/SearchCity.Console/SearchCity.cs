@@ -9,22 +9,13 @@ public class SearchCity
             return "No results.";
         }
 
-        if (field == "Va")
-        {
-            return "Valencia,Vancouver";
-        }
+        return SearchByName(Cities.Create(field));
+    }
 
-        if (field == "on")
-        {
-            return "London,HongKong";
-        }
-
-        if (field == "am")
-        {
-            return "Rotterdam,Amsterdam";
-        }
-
-        return string.Empty;
+    private string SearchByName(Cities cities)
+    {
+        var result = cities.Values.Where(x => x.Contains(cities.Field)).ToList();
+        return result.Count > 0 ? string.Join(",",result) : string.Empty;
     }
 
     private bool IsValidField(string field)

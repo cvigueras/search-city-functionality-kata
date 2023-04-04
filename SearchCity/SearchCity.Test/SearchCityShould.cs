@@ -12,17 +12,11 @@ namespace SearchCity.Test
         [Test]
         public void return_no_result_when_input_search_is_empty()
         {
-            var result = SearchCity.Get("");
+            var searchCity = new Console.SearchCity();
+
+            var result = searchCity.Get("");
 
             result.Should().Be("No results.");
-        }
-    }
-
-    public class SearchCity
-    {
-        public static object Get(string empty)
-        {
-            return "No results.";
         }
     }
 }

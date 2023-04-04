@@ -37,7 +37,7 @@ public class CitiesRepository
 
     public string SearchByName()
     {
-        var result = Values.Where(x => x.Contains(Field)).ToList();
+        var result = Values.Where(x => x.Contains(Field,StringComparison.Ordinal)).ToList();
         return result.Count > 0 ? string.Join(",",result) : "No results.";
     }
 }

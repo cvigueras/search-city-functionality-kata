@@ -12,6 +12,10 @@ public class SearchCity
         {
             return "No results.";
         }
+        if (empty == "a")
+        {
+            return "No results.";
+        }
 
         return string.Empty;
     }

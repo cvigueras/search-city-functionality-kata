@@ -38,28 +38,14 @@ namespace SearchCity.Test
             result.Should().Be("No results.");
         }
 
-        [Test]
-        public void return_Valencia_Vancouver_when_input_value_is_Va()
+        [TestCase("Va", "Valencia,Vancouver")]
+        [TestCase("on", "London,Hong Kong")]
+        [TestCase("am", "Rotterdam,Amsterdam")]
+        public void return_Valencia_Vancouver_when_input_value_is_Va(string input, string expectedResult)
         {
-            var result = _searchCity.Get("Va");
+            var result = _searchCity.Get(input);
 
-            result.Should().Be("Valencia,Vancouver");
-        }
-
-        [Test]
-        public void return_London_HongKong_when_input_value_is_on()
-        {
-            var result = _searchCity.Get("on");
-
-            result.Should().Be("London,Hong Kong");
-        }
-
-        [Test]
-        public void return_Rotterdam_Amsterdam_when_input_value_is_am()
-        {
-            var result = _searchCity.Get("am");
-
-            result.Should().Be("Rotterdam,Amsterdam");
+            result.Should().Be(expectedResult);
         }
     }
 }

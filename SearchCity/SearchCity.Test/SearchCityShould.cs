@@ -22,7 +22,7 @@ namespace SearchCity.Test
     {
         public static object Get(string empty)
         {
-            throw new NotImplementedException();
+            return "No results.";
         }
     }
 }

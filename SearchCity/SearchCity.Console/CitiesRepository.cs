@@ -1,17 +1,17 @@
 namespace SearchCity.Console;
 
-public class Cities
+public class CitiesRepository
 {
     public string Field { get; private set; }
     public List<string> Values { get; set; }
 
-    private Cities(List<string> values, string field)
+    private CitiesRepository(List<string> values, string field)
     {
         Values = values;
         Field = field;
     }
 
-    public static Cities Create(string field)
+    public static CitiesRepository Create(string field)
     {
         var values = new List<string>
         {
@@ -32,6 +32,12 @@ public class Cities
             "Rome",
             "Istanbul",
         };
-        return new Cities(values, field);
+        return new CitiesRepository(values, field);
+    }
+
+    public string SearchByName()
+    {
+        var result = Values.Where(x => x.Contains(Field)).ToList();
+        return result.Count > 0 ? string.Join(",",result) : string.Empty;
     }
 }

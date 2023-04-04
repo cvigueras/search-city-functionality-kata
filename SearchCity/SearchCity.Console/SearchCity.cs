@@ -4,17 +4,11 @@ public class SearchCity : ISearchCity
 {
     public string Get(string field)
     {
-        return !IsValidField(Cities.Create(field)) ? "No results." : SearchByName(Cities.Create(field));
+        return !IsValidField(CitiesRepository.Create(field)) ? "No results." : CitiesRepository.Create(field).SearchByName();
     }
 
-    private string SearchByName(Cities cities)
+    private bool IsValidField(CitiesRepository citiesRepository)
     {
-        var result = cities.Values.Where(x => x.Contains(cities.Field)).ToList();
-        return result.Count > 0 ? string.Join(",",result) : string.Empty;
-    }
-
-    private bool IsValidField(Cities cities)
-    {
-        return !string.IsNullOrEmpty(cities.Field) && cities.Field.Length >= 2;
+        return !string.IsNullOrEmpty(citiesRepository.Field) && citiesRepository.Field.Length >= 2;
     }
 }
